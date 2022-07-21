@@ -3,12 +3,15 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
   accessToken: string;
+  refreshToken: string;
 };
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  console.log('hello2', req.headers);
-  res.status(200).json({ accessToken: 'John Doe222' });
+  console.log('signIn', req.headers);
+  res
+    .status(200)
+    .json({ accessToken: 'accessToken', refreshToken: 'refreshToken' });
 }
